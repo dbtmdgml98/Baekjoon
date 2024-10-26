@@ -1,18 +1,19 @@
 class Solution {
-    public int solution(int num) {  // int형이라서 626331일 때는 범위가 초과되는 문제 발생함
+    public int solution(int num) { 
         int answer = 0;
+        long numAgain = (long) num;  
         
-        if (num == 1) {
+        if (numAgain == 1) {
             return 0;
         }
         
-        while (num != 1) {
-            if (answer == 400){
+        while (numAgain != 1) {
+            if (answer == 500){
                 return -1;
-            } else if (num % 2 == 0) {
-                num /= 2;
+            } else if (numAgain % 2 == 0) {
+                numAgain /= 2;
             } else {
-                num = (num * 3) + 1;
+                numAgain = (numAgain * 3) + 1;
             }
             answer++;
         }
