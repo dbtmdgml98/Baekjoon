@@ -1,29 +1,22 @@
+import java.util.*;
 class Solution {
     public long solution(long n) {
         long answer = 0;
         
-        String s = Long.toString(n);
-        char[] array = s.toCharArray();
+        // Long값인 n을 string으로 변경하여 배열에 한글자씩 담음
+        String[] array = String.valueOf(n).split("");
         
-        int check;
-        do {
-            check = 0;
-            for (int i = 0; i < s.length()-1; i++) {
-                    if (array[i] < array[i+1]) {
-                        char temp = array[i];
-                        array[i] = array[i+1];
-                        array[i+1] = temp;
-                        check++;
-                    }
-            }
-        } while (check != 0);
+        // 오름차순 정렬
+        Arrays.sort(array);
+    
+        // 내림차순 정렬
+        String newstr = "";
+        for(int i = array.length-1; i>=0; i--)
+            newstr+=array[i];
         
-        String str = "";
-        for (int i = 0; i < array.length; i++) {
-            str += array[i];
-        }
+        // Long형으로 변환
+        answer = Long.parseLong(newstr);
         
-        answer = Long.parseLong(str);
         return answer;
     }
 }
