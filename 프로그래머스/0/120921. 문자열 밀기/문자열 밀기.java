@@ -1,0 +1,19 @@
+class Solution {
+    public int solution(String A, String B) {
+        int answer = 0;
+        String str = A;
+        
+        for (int i = 0; i < A.length(); i++) {
+            if (str.equals(B)) {
+                return answer;
+            }
+            
+            String a = str.substring(str.length()-1);  // str의 마지막 문자를
+            str = a + str.substring(0, str.length()-1); // str의 가장 앞으로 이동
+            
+            answer++;
+        }
+        
+        return -1;
+    }
+}
